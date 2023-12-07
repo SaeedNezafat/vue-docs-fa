@@ -1,37 +1,45 @@
-# Glossary {#glossary}
+# واژه نامه {#glossary}
 
-This glossary is intended to provide some guidance about the meanings of technical terms that are in common usage when talking about Vue. It is intended to be *descriptive* of how terms are commonly used, not a *prescriptive* specification of how they must be used. Some terms may have slightly different meanings or nuances depending on the surrounding context.
+این فرهنگ لغت به منظور ارائه راهنمایی درباره معانی اصطلاحات فنی است که معمولاً در صحبت‌ها درباره Vue مورد استفاده قرار می‌گیرند. هدف آن توصیف استفاده متداول از اصطلاحات است، نه مشخصه اجباری برای استفاده از آن‌ها. برخی اصطلاحات ممکن است معانی یا جزئیات کمی متفاوتی داشته باشند که به متن اطراف وابسته است.
+
+
+
+
+
+
 
 [[TOC]]
 
-## async component {#async-component}
+## کامپوننت ناهمگام (async component) {#async-component}
 
-An *async component* is a wrapper around another component that allows for the wrapped component to be lazy loaded. This is typically used as a way to reduce the size of the built `.js` files, allowing them to be split into smaller chunks that are loaded only when required.
+یک *کامپوننت ناهمگام* (async component) پوششی است که اطراف یک کامپوننت دیگر است و به این کامپوننت پوشش داده شده اجازه می‌دهد به صورت تنبل(lazy) بارگذاری شود. این معمولاً به عنوان یک روش استفاده می‌شود تا از اندازه فایل‌های `.js` ساخته شده کاسته شود، اجازه می‌دهد تا آن‌ها به بخش‌های کوچکتر تقسیم شوند که فقط در صورت نیاز بارگذاری می‌شوند.
 
-Vue Router has a similar feature for the [lazy loading of route components](https://router.vuejs.org/guide/advanced/lazy-loading.html), though this does not use Vue's async components feature.
+Vue Router دارای یک ویژگی مشابه برای [بارگذاری تنبل کامپوننت‌های مسیر](https://router.vuejs.org/guide/advanced/lazy-loading.html) است، اما این ویژگی از ویژگی کامپوننت‌های ناهمگام Vue استفاده نمی‌کند.
 
-For more details see:
-- [Guide - Async Components](/guide/components/async.html)
 
-## compiler macro {#compiler-macro}
+برای جزئیات بیشتر، به لینک مربوطه مراجعه کنید:
+- [راهنما - کامپوننت‌های ناهمگام](/guide/components/async.html)
 
-A *compiler macro* is special code that is processed by a compiler and converted into something else. They are effectively a clever form of string replacement.
+##  ماکرو کامپایلر (compiler macro) {#compiler-macro}
 
-Vue's [SFC](#single-file-component) compiler supports various macros, such as `defineProps()`, `defineEmits()` and `defineExpose()`. These macros are intentionally designed to look like normal JavaScript functions so that they can leverage the same parser and type inference tooling around JavaScript / TypeScript. However, they are not actual functions that are run in the browser. These are special strings that the compiler detects and replaces with the real JavaScript code that will actually be run.
+یک *compiler macro* کد خاصی است که توسط یک کامپایلر پردازش شده و به چیز دیگری تبدیل می شود. آنها به طور موثر یک شکل هوشمندانه از جایگزینی رشته ای هستند.
 
-Macros have limitations on their use that don't apply to normal JavaScript code. For example, you might think that `const dp = defineProps` would allow you to create an alias for `defineProps`, but it'll actually result in an error. There are also limitations on what values can be passed to `defineProps()`, as the 'arguments' have to be processed by the compiler and not at runtime.
+کامپایلر [SFC] (#کامپوننت-تک-فایلی) Vue از ماکروهای مختلفی مانند «defineProps()»، «defineEmits()» و «defineExpose()» پشتیبانی می‌کند. این ماکروها عمداً به گونه‌ای طراحی شده‌اند که شبیه توابع معمولی جاوا اسکریپت باشند تا بتوانند از همان تجزیه‌کننده و ابزار استنتاج نوع (type interface) در جاوا اسکریپت/تایپ اسکریپت استفاده کنند. با این حال، آنها توابع واقعی نیستند که در مرورگر اجرا شوند. اینها رشته های خاصی هستند که کامپایلر آنها را شناسایی کرده و با کد جاوا اسکریپت واقعی که در واقع اجرا خواهد شد جایگزین می کند.
 
-For more details see:
+ماکروها دارای محدودیت‌هایی در استفاده هستند که کدهای معمولی جاوااسکریپت این محدودیت هارا ندارند. به عنوان مثال، ممکن است فکر کنید که `const dp = defineProps` اجازه می‌دهد که شما یک نام مستعار برای `defineProps` ایجاد کنید، اما در واقع این کار باعث ایجاد خطا می‌شود. همچنین محدودیت‌هایی بر روی مقادیر قابل ارسال به `defineProps()` وجود دارد، زیرا 'مقادیر ورودی' باید توسط کامپایلر پردازش شوند و نه در زمان اجرا.
+
+برای جزئیات بیشتر، به لینک مربوطه مراجعه کنید:
 - [`<script setup>` - `defineProps()` & `defineEmits()`](/api/sfc-script-setup.html#defineprops-defineemits)
 - [`<script setup>` - `defineExpose()`](/api/sfc-script-setup.html#defineexpose)
 
-## component {#component}
+## اجزا (component) {#component}
 
-The term *component* is not unique to Vue. It is common to many UI frameworks. It describes a chunk of the UI, such as a button or checkbox. Components can also be combined to form larger components.
+اصطلاح *component* منحصر به Vue نیست و در بسیاری از چارچوب های رابط کاربری (UI)  مشترک است. بخشی از رابط کاربری را توصیف می کند، مانند یک دکمه یا چک باکس.
+کامپوننت‌ها همچنین می‌توانند ترکیب شوند تا کامپوننت‌های بزرگتری را تشکیل دهند.
 
-Components are the primary mechanism provided by Vue to split a UI into smaller pieces, both to improve maintainability and to allow for code reuse.
+کامپوننت‌ها (Components) مکانیسم اصلی ارائه شده توسط Vue برای تقسیم یک رابط کاربری به قطعات کوچکتر هستند، هم به منظور بهبود قابلیت نگهداری کد و هم به منظور امکان استفاده مجدد از کدها.
 
-A Vue component is an object. All properties are optional, but either a template or render function is required for the component to render. For example, the following object would be a valid component:
+یک کامپوننت Vue یک شی(object) است. همه ویژگی ها اختیاری هستند، اما برای رندر کردن کامپوننت به یک الگو(template) یا تابع رندر(render function) نیاز است. برای مثال، شی زیر یک کامپوننت معتبر خواهد بود:
 
 ```js
 const HelloWorldComponent = {
@@ -41,31 +49,31 @@ const HelloWorldComponent = {
 }
 ```
 
-In practice, most Vue applications are written using [Single-File Components](#single-file-component) (`.vue` files). While these components may not appear to be objects at first glance, the SFC compiler will convert them into an object, which is used as the default export for the file. From an external perspective, a `.vue` file is just an ES module that exports a component object.
+در عمل، بیشتر برنامه‌های Vue با استفاده از [کامپوننت-تک-فایلی](#کامپوننت-تک-فایلی) (فایل‌های با پسوند `.vue`) نوشته می‌شوند. این کامپوننت‌ها ابتدا ممکن است به نظر نیایند که شیء هستند، اما کامپایلر SFC آن‌ها را به یک شیء تبدیل می‌کند که به عنوان صادرات پیشفرض (export default) فایل استفاده می‌شود. از دیدگاه خارجی، یک فایل با پسوند `.vue` به عنوان یک ماژول ES (ECMAScript) است که یک شیء کامپوننت را صادر (export) می‌کند.
 
-The properties of a component object are usually referred to as *options*. This is where the [Options API](#options-api) gets its name.
+ویژگی‌های یک شیء کامپوننت معمولاً به عنوان "گزینه‌ها" (*options*) نامیده می‌شوند. این نامگذاری به دلیل ویژگی‌های مختلف و تنظیمات موجود در [Options API](#options-api) به وجود آمده است.
 
-The options for a component define how instances of that component should be created. Components are conceptually similar to classes, though Vue doesn't use actual JavaScript classes to define them.
+گزینه‌های یک کامپوننت تعریف می‌کنند که چگونه نمونه‌های آن کامپوننت باید ایجاد شوند. کامپوننت‌ها از نظر مفهومی شباهت زیادی به کلاس‌ها دارند، اما Vue از کلاس‌های جاوااسکریپت برای تعریف آنها استفاده نمی‌کند.
 
-The term component can also be used more loosely to refer to component instances.
+اصطلاح کامپوننت می‌تواند به طور وسیع‌تر به نمونه‌های کامپوننت (component instances) اشاره کند.
 
-For more details see:
-- [Guide - Component Basics](/guide/essentials/component-basics.html)
+برای جزئیات بیشتر، به لینک مربوطه مراجعه کنید:
+- [راهنما - مبانی کامپوننت](/guide/essentials/component-basics.html)
 
-The word 'component' also features in several other terms:
-- [async component](#async-component)
-- [dynamic component](#dynamic-component)
-- [functional component](#functional-component)
-- [Web Component](#web-component)
+کلمه "کامپوننت" همچنین در چندین عبارت دیگر نیز به کار رفته است:
+- [(async component) کامپوننت ناهمگام](#async-component)
+- [ (dynamic component) کامپوننت پویا ](#dynamic-component)
+- [ (functional component) کامپوننت تابعی ](#functional-component)
+- [(Web Component) وب کامپوننت ](#web-component)
 
-## composable {#composable}
+## قابل ترکیب (composable) {#composable}
 
-The term *composable* describes a common usage pattern in Vue. It isn't a separate feature of Vue, it's just a way of using the framework's [Composition API](#composition-api).
+اصطلاح "composable" الگوی استفاده متداول در Vue را توصیف می‌کند. این، یک ویژگی مجزا از Vue نیست، بلکه فقط یک روش استفاده از [Composition API](#composition-api) در Vue است.
 
-* A composable is a function.
-* Composables are used to encapsulate and reuse stateful logic.
-* The function name usually begins with `use`, so that other developers know it's a composable.
-* The function is typically expected to be called during the synchronous execution of a component's `setup()` function (or, equivalently, during the execution of a `<script setup>` block). This ties the invocation of the composable to the current component context, e.g. via calls to `provide()`, `inject()` or `onMounted()`.
+* یک composable یک تابع است.
+*  Composable ها برای کپسوله‌سازی و استفاده مجدد از منطق دارای وضعیت (stateful logic) استفاده می‌شوند.
+* نام تابع معمولا با `use` شروع می‌شود تا سایر توسعه‌دهندگان بدانند که این یک composable است.
+* معمولا انتظار می‌رود که تابع به طور همزمان در اجرای تابع `setup()` یک کامپوننت (یا معادل آن، در حین اجرای یک بلوک `<script setup>`) فراخوانی شود. این باعث می‌شود فراخوانی composable به سازگاری با محیط فعلی کامپوننت مرتبط شود، مثلاً از طریق فراخوانی‌های `provide()`، `inject()` یا `onMounted()` استفاده شود.
 * Composables typically return a plain object, not a reactive object. This object usually contains refs and functions and is expected to be destructured within the calling code.
 
 As with many patterns, there can be some disagreement about whether specific code qualifies for the label. Not all JavaScript utility functions are composables. If a function doesn't use the Composition API then it probably isn't a composable. If it doesn't expect to be called during the synchronous execution of `setup()` then it probably isn't a composable. Composables are specifically used to encapsulate stateful logic, they are not just a naming convention for functions.
